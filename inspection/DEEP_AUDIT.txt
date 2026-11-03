@@ -1,0 +1,157 @@
+===== SCRIPT STATUS =====
+ModuleScript | Disabled=(property absent) | /ServerScriptService/ServerScriptService/MobaShared
+Script | Disabled=false | /ServerScriptService/ServerScriptService/TowerSystem
+Script | Disabled=true | /ServerScriptService/ServerScriptService/MinionWaveSystem
+Script | Disabled=false | /ServerScriptService/ServerScriptService/JungleSystem
+Script | Disabled=false | /ServerScriptService/ServerScriptService/MatchManager
+Script | Disabled=false | /ServerScriptService/ServerScriptService/HeroSystem
+Script | Disabled=false | /ServerScriptService/ServerScriptService/AbilitySystem
+Script | Disabled=false | /ServerScriptService/ServerScriptService/ItemShop
+Script | Disabled=false | /ServerScriptService/ServerScriptService/LightingSetup
+Script | Disabled=false | /ServerScriptService/ServerScriptService/TowerVisualFX
+Script | Disabled=false | /ServerScriptService/ServerScriptService/BushSystem
+Script | Disabled=false | /ServerScriptService/ServerScriptService/MinionSystem
+ModuleScript | Disabled=(property absent) | /ReplicatedStorage/ReplicatedStorage/MobaConfig
+ModuleScript | Disabled=(property absent) | /ReplicatedStorage/ReplicatedStorage/MinionModels/Swordsman/ProceduralGeneration
+ModuleScript | Disabled=(property absent) | /ReplicatedStorage/ReplicatedStorage/MinionModels/Swordsman/ProceduralGeneration/Dependencies/ConstructiveSolidGeometry
+ModuleScript | Disabled=(property absent) | /ReplicatedStorage/ReplicatedStorage/MinionModels/Swordsman/ProceduralGeneration/Dependencies/GeometryPrimitives
+ModuleScript | Disabled=(property absent) | /ReplicatedStorage/ReplicatedStorage/MinionModels/Swordsman/ProceduralGeneration/Dependencies/SmartObject
+ModuleScript | Disabled=(property absent) | /ReplicatedStorage/ReplicatedStorage/MinionModels/Swordsman/ProceduralGeneration/Dependencies/MathUtils
+LocalScript | Disabled=false | /StarterPlayer/StarterPlayer/StarterPlayerScripts/MobaControls
+LocalScript | Disabled=false | /StarterPlayer/StarterPlayer/StarterPlayerScripts/MobaHUD
+LocalScript | Disabled=false | /StarterPlayer/StarterPlayer/StarterPlayerScripts/MobaAbilities
+LocalScript | Disabled=false | /StarterPlayer/StarterPlayer/StarterPlayerScripts/CameraControl
+LocalScript | Disabled=false | /StarterPlayer/StarterPlayer/StarterPlayerScripts/BushVision
+TOTAL SCRIPTS: 23
+
+===== MOBA_MAP DIRECT CHILDREN =====
+Ground <Folder> direct=3 descendants=4 models=0 parts=3
+River <Part> direct=0 descendants=1 models=0 parts=1
+Roads <Folder> direct=29 descendants=30 models=0 parts=29
+Towers <Folder> direct=18 descendants=4151 models=176 parts=2890
+Bases <Folder> direct=10 descendants=17 models=2 parts=8
+Jungle <Folder> direct=160 descendants=820 models=160 parts=659
+JungleCamps <Folder> direct=10 descendants=11 models=0 parts=10
+GrassDetail <Folder> direct=16 descendants=2061 models=0 parts=2044
+2kRealisticGrassPBR <MaterialVariant> direct=0 descendants=1 models=0 parts=0
+RealisticGrassField <Folder> direct=6177 descendants=18532 models=0 parts=6177
+Bushes <Folder> direct=84 descendants=2773 models=1428 parts=1344
+
+===== TOWER MODELS (DIRECT CHILDREN) =====
+Blue_T2_Top <Model> duplicateNameCount=1 attributes=(none exposed in XML)
+Blue_T1_Top <Model> duplicateNameCount=1 attributes=(none exposed in XML)
+Blue_T2_Mid <Model> duplicateNameCount=1 attributes=(none exposed in XML)
+Blue_T1_Mid <Model> duplicateNameCount=1 attributes=(none exposed in XML)
+Blue_T2_Bot <Model> duplicateNameCount=1 attributes=(none exposed in XML)
+Blue_T1_Bot <Model> duplicateNameCount=1 attributes=(none exposed in XML)
+Blue_T3_Base <Model> duplicateNameCount=2 attributes=(none exposed in XML)
+Blue_T3_Base <Model> duplicateNameCount=2 attributes=(none exposed in XML)
+Red_T2_Top <Model> duplicateNameCount=1 attributes=(none exposed in XML)
+Red_T1_Top <Model> duplicateNameCount=1 attributes=(none exposed in XML)
+Red_T2_Mid <Model> duplicateNameCount=1 attributes=(none exposed in XML)
+Red_T1_Mid <Model> duplicateNameCount=1 attributes=(none exposed in XML)
+Red_T2_Bot <Model> duplicateNameCount=1 attributes=(none exposed in XML)
+Red_T1_Bot <Model> duplicateNameCount=1 attributes=(none exposed in XML)
+Red_T3_Base <Model> duplicateNameCount=2 attributes=(none exposed in XML)
+Red_T3_Base <Model> duplicateNameCount=2 attributes=(none exposed in XML)
+Blue_Nexus <Model> duplicateNameCount=1 attributes=(none exposed in XML)
+Red_Nexus <Model> duplicateNameCount=1 attributes=(none exposed in XML)
+
+===== BUSH MODELS (DIRECT CHILDREN) =====
+Direct child count: 84
+Bush_96 <Model> attributes=(none exposed in XML)
+Bush_92 <Model> attributes=(none exposed in XML)
+Bush_93 <Model> attributes=(none exposed in XML)
+Bush_4 <Model> attributes=(none exposed in XML)
+Bush_5 <Model> attributes=(none exposed in XML)
+Bush_6 <Model> attributes=(none exposed in XML)
+Bush_7 <Model> attributes=(none exposed in XML)
+Bush_8 <Model> attributes=(none exposed in XML)
+Bush_9 <Model> attributes=(none exposed in XML)
+Bush_10 <Model> attributes=(none exposed in XML)
+Bush_11 <Model> attributes=(none exposed in XML)
+Bush_12 <Model> attributes=(none exposed in XML)
+Bush_13 <Model> attributes=(none exposed in XML)
+Bush_14 <Model> attributes=(none exposed in XML)
+Bush_15 <Model> attributes=(none exposed in XML)
+Bush_16 <Model> attributes=(none exposed in XML)
+Bush_17 <Model> attributes=(none exposed in XML)
+Bush_18 <Model> attributes=(none exposed in XML)
+Bush_19 <Model> attributes=(none exposed in XML)
+Bush_20 <Model> attributes=(none exposed in XML)
+Bush_21 <Model> attributes=(none exposed in XML)
+Bush_22 <Model> attributes=(none exposed in XML)
+Bush_23 <Model> attributes=(none exposed in XML)
+Bush_24 <Model> attributes=(none exposed in XML)
+Bush_25 <Model> attributes=(none exposed in XML)
+Bush_26 <Model> attributes=(none exposed in XML)
+Bush_27 <Model> attributes=(none exposed in XML)
+Bush_28 <Model> attributes=(none exposed in XML)
+Bush_29 <Model> attributes=(none exposed in XML)
+Bush_30 <Model> attributes=(none exposed in XML)
+Bush_31 <Model> attributes=(none exposed in XML)
+Bush_87 <Model> attributes=(none exposed in XML)
+Bush_88 <Model> attributes=(none exposed in XML)
+Bush_89 <Model> attributes=(none exposed in XML)
+Bush_90 <Model> attributes=(none exposed in XML)
+Bush_91 <Model> attributes=(none exposed in XML)
+Bush_37 <Model> attributes=(none exposed in XML)
+Bush_38 <Model> attributes=(none exposed in XML)
+Bush_39 <Model> attributes=(none exposed in XML)
+Bush_40 <Model> attributes=(none exposed in XML)
+Bush_41 <Model> attributes=(none exposed in XML)
+Bush_42 <Model> attributes=(none exposed in XML)
+Bush_43 <Model> attributes=(none exposed in XML)
+Bush_44 <Model> attributes=(none exposed in XML)
+Bush_45 <Model> attributes=(none exposed in XML)
+Bush_46 <Model> attributes=(none exposed in XML)
+Bush_97 <Model> attributes=(none exposed in XML)
+Bush_98 <Model> attributes=(none exposed in XML)
+Bush_49 <Model> attributes=(none exposed in XML)
+Bush_95 <Model> attributes=(none exposed in XML)
+Bush_94 <Model> attributes=(none exposed in XML)
+Bush_52 <Model> attributes=(none exposed in XML)
+Bush_53 <Model> attributes=(none exposed in XML)
+Bush_54 <Model> attributes=(none exposed in XML)
+Bush_55 <Model> attributes=(none exposed in XML)
+Bush_56 <Model> attributes=(none exposed in XML)
+Bush_57 <Model> attributes=(none exposed in XML)
+Bush_58 <Model> attributes=(none exposed in XML)
+Bush_59 <Model> attributes=(none exposed in XML)
+Bush_60 <Model> attributes=(none exposed in XML)
+Bush_61 <Model> attributes=(none exposed in XML)
+Bush_62 <Model> attributes=(none exposed in XML)
+Bush_63 <Model> attributes=(none exposed in XML)
+Bush_64 <Model> attributes=(none exposed in XML)
+Bush_65 <Model> attributes=(none exposed in XML)
+Bush_66 <Model> attributes=(none exposed in XML)
+Bush_67 <Model> attributes=(none exposed in XML)
+Bush_68 <Model> attributes=(none exposed in XML)
+Bush_69 <Model> attributes=(none exposed in XML)
+Bush_70 <Model> attributes=(none exposed in XML)
+Bush_71 <Model> attributes=(none exposed in XML)
+Bush_72 <Model> attributes=(none exposed in XML)
+Bush_73 <Model> attributes=(none exposed in XML)
+Bush_74 <Model> attributes=(none exposed in XML)
+Bush_75 <Model> attributes=(none exposed in XML)
+Bush_76 <Model> attributes=(none exposed in XML)
+Bush_77 <Model> attributes=(none exposed in XML)
+Bush_78 <Model> attributes=(none exposed in XML)
+Bush_79 <Model> attributes=(none exposed in XML)
+Bush_86 <Model> attributes=(none exposed in XML)
+Bush_85 <Model> attributes=(none exposed in XML)
+Bush_82 <Model> attributes=(none exposed in XML)
+Bush_83 <Model> attributes=(none exposed in XML)
+Bush_84 <Model> attributes=(none exposed in XML)
+
+===== JUNGLE CAMPS DIRECT CHILDREN =====
+Camp_1 <Part> attributes=(none exposed in XML)
+Camp_2 <Part> attributes=(none exposed in XML)
+Camp_3 <Part> attributes=(none exposed in XML)
+Camp_4 <Part> attributes=(none exposed in XML)
+Camp_5 <Part> attributes=(none exposed in XML)
+Camp_6 <Part> attributes=(none exposed in XML)
+Camp_7 <Part> attributes=(none exposed in XML)
+Camp_8 <Part> attributes=(none exposed in XML)
+Turtle_Pit <Part> attributes=(none exposed in XML)
+Lord_Pit <Part> attributes=(none exposed in XML)
