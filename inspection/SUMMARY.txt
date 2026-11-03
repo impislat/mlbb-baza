@@ -1,0 +1,134 @@
+Input: Place1.rbxlx
+Total instances: 38038
+Scripts extracted: 23
+
+Instance counts by class:
+Part: 20033
+SpecialMesh: 7273
+Decal: 6182
+Model: 1905
+MeshPart: 1811
+CylinderMesh: 390
+WedgePart: 120
+Folder: 40
+WeldConstraint: 40
+UnionOperation: 36
+MaterialVariant: 27
+PointLight: 21
+SpotLight: 15
+ParticleEmitter: 12
+Script: 11
+ViewportCamera: 11
+ModuleScript: 7
+LocalScript: 5
+RemoteEvent: 5
+SpawnLocation: 4
+Attachment: 3
+Sound: 3
+Atmosphere: 2
+Team: 2
+AssetService: 1
+AvatarAbilityRules: 1
+AvatarAccessoryRules: 1
+AvatarAnimationRules: 1
+AvatarBodyRules: 1
+AvatarClothingRules: 1
+AvatarCollisionRules: 1
+AvatarRules: 1
+AvatarSettings: 1
+BloomEffect: 1
+BubbleChatConfiguration: 1
+CSGDictionaryService: 1
+Camera: 1
+ChannelTabsConfiguration: 1
+Chat: 1
+ChatInputBarConfiguration: 1
+ChatWindowConfiguration: 1
+CollectionService: 1
+ColorCorrectionEffect: 1
+ContextActionService: 1
+CookiesService: 1
+DataStoreService: 1
+Debris: 1
+GamePassService: 1
+GeneratedFolder: 1
+GuidRegistryService: 1
+HttpService: 1
+Humanoid: 1
+ImageLabel: 1
+InsertService: 1
+Lighting: 1
+LocalizationService: 1
+LodDataService: 1
+LuaWebService: 1
+MaterialService: 1
+NonReplicatedCSGDictionaryService: 1
+Packages: 1
+PermissionsService: 1
+PhysicsService: 1
+PlayerEmulatorService: 1
+Players: 1
+ProceduralModel: 1
+ProcessInstancePhysicsService: 1
+ProximityPromptService: 1
+ReplicatedFirst: 1
+ReplicatedStorage: 1
+ScriptService: 1
+Selection: 1
+SerializationService: 1
+ServerScriptService: 1
+ServerStorage: 1
+ServiceVisibilityService: 1
+Sky: 1
+SoundService: 1
+StarterCharacterScripts: 1
+StarterGui: 1
+StarterPack: 1
+StarterPlayer: 1
+StarterPlayerScripts: 1
+StringValue: 1
+StudioData: 1
+SunRaysEffect: 1
+Teams: 1
+TeleportService: 1
+Terrain: 1
+TestService: 1
+TextChatService: 1
+TimerService: 1
+TouchInputService: 1
+TweenService: 1
+UGCAvatarService: 1
+UICorner: 1
+UIGradient: 1
+UIPadding: 1
+VRService: 1
+VideoCaptureService: 1
+VideoService: 1
+VirtualInputManager: 1
+VoiceChatService: 1
+Workspace: 1
+
+Scripts:
+/StarterPlayer/StarterPlayerScripts/MobaControls [LocalScript] -> inspection/scripts/StarterPlayer_StarterPlayerScripts_MobaControls.lua (2970 chars; sha256 34f4007d07353d98f16f53e977ed35f24f12a2a559d09f6da3624b02c6620766)
+/StarterPlayer/StarterPlayerScripts/MobaHUD [LocalScript] -> inspection/scripts/StarterPlayer_StarterPlayerScripts_MobaHUD.lua (5094 chars; sha256 9cee9059f079251231185bb5e04be52c76420c2ef2af56f80762dbb29c516d34)
+/StarterPlayer/StarterPlayerScripts/MobaAbilities [LocalScript] -> inspection/scripts/StarterPlayer_StarterPlayerScripts_MobaAbilities.lua (5521 chars; sha256 575731f945a488e569e109b1ada8c4cd8310b1aefef6d7be909497d1fa3939a7)
+/StarterPlayer/StarterPlayerScripts/CameraControl [LocalScript] -> inspection/scripts/StarterPlayer_StarterPlayerScripts_CameraControl.lua (3164 chars; sha256 c0637d01ab1c28ee08768018e70b05862292652adbcabc65ecc04f2a56f8ae4d)
+/StarterPlayer/StarterPlayerScripts/BushVision [LocalScript] -> inspection/scripts/StarterPlayer_StarterPlayerScripts_BushVision.lua (2588 chars; sha256 0f264d88acf55259e499cff80f079a83c47b05a3ff8f24251beb474a986134b6)
+/ReplicatedStorage/MobaConfig [ModuleScript] -> inspection/scripts/ReplicatedStorage_MobaConfig.lua (2739 chars; sha256 46494c4f742650f141699ac3ee86d49527a413ff162c7c3dcbb9c328e426765a)
+/ReplicatedStorage/MinionModels/Swordsman/ProceduralGeneration [ModuleScript] -> inspection/scripts/ReplicatedStorage_MinionModels_Swordsman_ProceduralGeneration.lua (12298 chars; sha256 ae02775cafff13f28f3ba8238385c2524df8ff7a564b06a0eaee57593bdaf82f)
+/ReplicatedStorage/MinionModels/Swordsman/ProceduralGeneration/Dependencies/ConstructiveSolidGeometry [ModuleScript] -> inspection/scripts/ReplicatedStorage_MinionModels_Swordsman_ProceduralGeneration_Dependencies_ConstructiveSolidGeometry.lua (8829 chars; sha256 a79c3cf9cf26d475a3c1970f18b3639a618a3fa2bc6f93e33fd68ec94ba7efeb)
+/ReplicatedStorage/MinionModels/Swordsman/ProceduralGeneration/Dependencies/GeometryPrimitives [ModuleScript] -> inspection/scripts/ReplicatedStorage_MinionModels_Swordsman_ProceduralGeneration_Dependencies_GeometryPrimitives.lua (106265 chars; sha256 28c4be052814a92801177d2e2ac92cb5eb7db3a79fc3cfa388cc8190cf9faee4)
+/ReplicatedStorage/MinionModels/Swordsman/ProceduralGeneration/Dependencies/SmartObject [ModuleScript] -> inspection/scripts/ReplicatedStorage_MinionModels_Swordsman_ProceduralGeneration_Dependencies_SmartObject.lua (1859 chars; sha256 991bb2ba1816120e98a0c4ed8d9a3fa435eca487f97a35a4bf2509bad023dbb1)
+/ReplicatedStorage/MinionModels/Swordsman/ProceduralGeneration/Dependencies/MathUtils [ModuleScript] -> inspection/scripts/ReplicatedStorage_MinionModels_Swordsman_ProceduralGeneration_Dependencies_MathUtils.lua (6744 chars; sha256 24c5bb0249067c3af1d162c69ef88bbd3848553578fbc24741c3fac765d89ed7)
+/ServerScriptService/MobaShared [ModuleScript] -> inspection/scripts/ServerScriptService_MobaShared.lua (5477 chars; sha256 c1a086f1cdbf86d68a17cccea88ce1c27b10d67ee84dd9b105879ab7683c4a68)
+/ServerScriptService/TowerSystem [Script] -> inspection/scripts/ServerScriptService_TowerSystem.lua (9163 chars; sha256 e273f9b081567f9db289f3a3a131782ebf487e5d42313d321c61bf6f76ec03dd)
+/ServerScriptService/MinionWaveSystem [Script] -> inspection/scripts/ServerScriptService_MinionWaveSystem.lua (5939 chars; sha256 5b983ec2aedc8d644bcc36f0350b063e7a90fdb36ba9bc87f404547fb7358a76)
+/ServerScriptService/JungleSystem [Script] -> inspection/scripts/ServerScriptService_JungleSystem.lua (10343 chars; sha256 f4141880f058c06b903e3413df21f1a026fc0bee4c0e85c6b845532656f4c612)
+/ServerScriptService/MatchManager [Script] -> inspection/scripts/ServerScriptService_MatchManager.lua (11560 chars; sha256 288a904104ba7caca3ad59e328070ccf1865b783ff4193f8671c6fa68ef75f36)
+/ServerScriptService/HeroSystem [Script] -> inspection/scripts/ServerScriptService_HeroSystem.lua (9043 chars; sha256 a80a6f427f2f2e9317dbc2738d09422ad6286c6691cff372c950f2a344e35f03)
+/ServerScriptService/AbilitySystem [Script] -> inspection/scripts/ServerScriptService_AbilitySystem.lua (4685 chars; sha256 b22162a8cba8d56d72f6b6c4258f280be9129899bcaa26a006f4c767c810beba)
+/ServerScriptService/ItemShop [Script] -> inspection/scripts/ServerScriptService_ItemShop.lua (4803 chars; sha256 fec861fd4454726dbefe7d1606d0817b0e880a19cf729bac784f76b190f4c112)
+/ServerScriptService/LightingSetup [Script] -> inspection/scripts/ServerScriptService_LightingSetup.lua (1645 chars; sha256 a6f60d9fab0e5ec5bc116e6650e5c34a56f2dd609283cb3c823271338001a7f7)
+/ServerScriptService/TowerVisualFX [Script] -> inspection/scripts/ServerScriptService_TowerVisualFX.lua (2025 chars; sha256 999df32203927c96c5b15adea851b1f1815635ab9784e2ec437d4312a844b892)
+/ServerScriptService/BushSystem [Script] -> inspection/scripts/ServerScriptService_BushSystem.lua (1811 chars; sha256 b76b9ad10033d8d774f22c2aa6776e9dd7beddecc6f97df31130d8228a1b9b79)
+/ServerScriptService/MinionSystem [Script] -> inspection/scripts/ServerScriptService_MinionSystem.lua (19285 chars; sha256 e6bc9dbd9eba6a71d1ea43dbd2b05af2ad98da2565f5f67e257ed37c5797f57a)
