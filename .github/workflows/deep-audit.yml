@@ -1,0 +1,121 @@
+name: Deep Roblox map checks
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  deep-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install 7-Zip
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y p7zip-full
+
+      - name: Extract and inspect scripts, map objects and attributes
+        shell: bash
+        run: |
+          mkdir -p /tmp/place inspection
+          7z x Place1.7z -o/tmp/place -y
+          FILE="$(find /tmp/place -type f -iname '*.rbxlx' | head -n 1)"
+          test -n "$FILE"
+          python3 - "$FILE" <<'PY'
+          import sys, xml.etree.ElementTree as ET, collections
+          root=ET.parse(sys.argv[1]).getroot()
+          def children(x): return x.findall("Item")
+          def prop(x,key):
+              ps=x.find("Properties")
+              if ps is None: return ""
+              for p in ps:
+                  if p.attrib.get("name")==key:
+                      return " ".join("".join(p.itertext()).split())
+              return ""
+          def nm(x): return prop(x,"Name") or "(unnamed)"
+          def walk(x,path):
+              here=path+"/"+nm(x)
+              yield x,here
+              for c in children(x): yield from walk(c,here)
+          services={nm(x):x for x in children(root)}
+          out=[]
+          out.append("===== SCRIPT STATUS =====")
+          scripts=[]
+          for service_name in ("ServerScriptService","ServerStorage","ReplicatedStorage","StarterPlayer","StarterGui","Workspace"):
+              service=services.get(service_name)
+              if service:
+                  for x,p in walk(service,"/"+service_name):
+                      cls=x.attrib.get("class","")
+                      if cls in ("Script","LocalScript","ModuleScript"):
+                          scripts.append((p,cls,prop(x,"Disabled")))
+          for p,cls,disabled in scripts:
+              out.append(f"{cls} | Disabled={disabled or '(property absent)'} | {p}")
+          out.append(f"TOTAL SCRIPTS: {len(scripts)}")
+          out.append("")
+          def find(x,target):
+              if nm(x)==target: return x
+              for c in children(x):
+                  got=find(c,target)
+                  if got is not None: return got
+              return None
+          ws=services.get("Workspace")
+          moba=find(ws,"MOBA_Map") if ws is not None else None
+          out.append("===== MOBA_MAP DIRECT CHILDREN =====")
+          if moba is None: out.append("MOBA_Map NOT FOUND")
+          else:
+              for c in children(moba):
+                  cls=c.attrib.get("class","?")
+                  desc=list(c.iter("Item"))
+                  counts=collections.Counter(z.attrib.get("class","?") for z in desc)
+                  out.append(f"{nm(c)} <{cls}> direct={len(children(c))} descendants={len(desc)} models={counts.get('Model',0)} parts={counts.get('Part',0)+counts.get('MeshPart',0)}")
+          out.append("")
+          out.append("===== TOWER MODELS (DIRECT CHILDREN) =====")
+          towers=find(moba,"Towers") if moba is not None else None
+          if towers is not None:
+              seen=collections.Counter(nm(x) for x in children(towers))
+              for x in children(towers):
+                  attrs=x.find("Attributes")
+                  attr_text=[]
+                  if attrs is not None:
+                      for a in attrs:
+                          attr_text.append(a.attrib.get("name","?")+":"+a.attrib.get("type","?"))
+                  out.append(f"{nm(x)} <{x.attrib.get('class','?')}> duplicateNameCount={seen[nm(x)]} attributes={','.join(attr_text) if attr_text else '(none exposed in XML)'}")
+          out.append("")
+          out.append("===== BUSH MODELS (DIRECT CHILDREN) =====")
+          bushes=find(moba,"Bushes") if moba is not None else None
+          if bushes is not None:
+              out.append(f"Direct child count: {len(children(bushes))}")
+              for x in children(bushes)[:160]:
+                  attrs=x.find("Attributes")
+                  attr_text=[]
+                  if attrs is not None:
+                      for a in attrs: attr_text.append(a.attrib.get("name","?")+":"+a.attrib.get("type","?"))
+                  out.append(f"{nm(x)} <{x.attrib.get('class','?')}> attributes={','.join(attr_text) if attr_text else '(none exposed in XML)'}")
+          out.append("")
+          out.append("===== JUNGLE CAMPS DIRECT CHILDREN =====")
+          camps=find(moba,"JungleCamps") if moba is not None else None
+          if camps is not None:
+              for x in children(camps):
+                  attrs=x.find("Attributes")
+                  attr_text=[]
+                  if attrs is not None:
+                      for a in attrs: attr_text.append(a.attrib.get("name","?")+":"+a.attrib.get("type","?"))
+                  out.append(f"{nm(x)} <{x.attrib.get('class','?')}> attributes={','.join(attr_text) if attr_text else '(none exposed in XML)'}")
+          with open("inspection/DEEP_AUDIT.txt","w",encoding="utf-8") as f: f.write("\n".join(out))
+          print("Created DEEP_AUDIT.txt",len(out),"lines")
+          PY
+
+      - name: Commit deep audit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add inspection/DEEP_AUDIT.txt
+          if git diff --cached --quiet; then
+            echo "No deep audit changes."
+          else
+            git commit -m "Add deep Roblox map audit"
+            git push
+          fi
