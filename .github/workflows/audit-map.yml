@@ -1,0 +1,103 @@
+name: Audit Roblox map structure
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  map-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install 7-Zip
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y p7zip-full
+
+      - name: Extract archive and create compact map report
+        shell: bash
+        run: |
+          mkdir -p /tmp/place inspection
+          7z x Place1.7z -o/tmp/place -y
+          FILE="$(find /tmp/place -type f -iname '*.rbxlx' | head -n 1)"
+          if [ -z "$FILE" ]; then
+            echo "Place1.rbxlx not found in archive" > inspection/MAP_AUDIT.txt
+            exit 1
+          fi
+          python3 - "$FILE" <<'PY'
+          import sys, xml.etree.ElementTree as ET, os, collections
+          root = ET.parse(sys.argv[1]).getroot()
+          services = {"Workspace","ReplicatedStorage","ServerStorage","ServerScriptService","StarterGui","StarterPlayer","Teams","Lighting"}
+          lines=[]
+          def prop(item, key):
+              ps=item.find("Properties")
+              if ps is None: return ""
+              for p in ps:
+                  if p.attrib.get("name")==key:
+                      return " ".join("".join(p.itertext()).split())
+              return ""
+          def name(item):
+              return prop(item,"Name") or "(unnamed)"
+          def children(item):
+              return item.findall("Item")
+          def walk(item, path, depth=0):
+              cls=item.attrib.get("class","?")
+              nm=name(item)
+              p=path+"/"+nm
+              kids=children(item)
+              counts=collections.Counter(k.attrib.get("class","?") for k in kids)
+              suffix=f" [children={len(kids)}; models={counts.get('Model',0)}; parts={counts.get('Part',0)+counts.get('MeshPart',0)}]"
+              lines.append("  "*depth+f"{nm} <{cls}>{suffix}")
+              if depth < 4 or cls in ("Folder","Model") and depth < 7:
+                  for k in kids:
+                      kcls=k.attrib.get("class","?")
+                      if depth < 4 or kcls in ("Folder","Model","Part","MeshPart","SpawnLocation","ProceduralModel"):
+                          walk(k,p,depth+1)
+          for service in root.findall("Item"):
+              if name(service) in services:
+                  lines.append("\n===== "+name(service)+" =====")
+                  if name(service) in ("Workspace","ReplicatedStorage","ServerStorage","StarterGui","StarterPlayer"):
+                      for child in children(service):
+                          walk(child,"/"+name(service),0)
+          # Compact inventory for the MOBA map: named models and key physical properties.
+          def find_named(item, target):
+              if name(item)==target: return item
+              for c in children(item):
+                  r=find_named(c,target)
+                  if r is not None: return r
+              return None
+          workspace=next((x for x in root.findall("Item") if name(x)=="Workspace"),None)
+          moba=find_named(workspace,"MOBA_Map") if workspace is not None else None
+          lines.append("\n===== MOBA_MAP MODEL INVENTORY =====")
+          if moba is None:
+              lines.append("MOBA_Map not found under Workspace")
+          else:
+              def inventory(item,path):
+                  cls=item.attrib.get("class","?")
+                  nm=name(item); p=path+"/"+nm
+                  if cls in ("Model","Folder","ProceduralModel"):
+                      desc=list(item.iter("Item"))
+                      cc=collections.Counter(x.attrib.get("class","?") for x in desc)
+                      lines.append(f"{p} <{cls}> descendants={len(desc)} models={cc.get('Model',0)} parts={cc.get('Part',0)+cc.get('MeshPart',0)}")
+                  for c in children(item):
+                      inventory(c,p)
+              inventory(moba,"/Workspace")
+          out="\n".join(lines)
+          with open("inspection/MAP_AUDIT.txt","w",encoding="utf-8") as f: f.write(out)
+          print("Created compact map audit:",len(lines),"lines",len(out),"characters")
+          PY
+
+      - name: Commit map audit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add inspection/MAP_AUDIT.txt
+          if git diff --cached --quiet; then
+            echo "No map audit changes."
+          else
+            git commit -m "Add compact Roblox map audit"
+            git push
+          fi
