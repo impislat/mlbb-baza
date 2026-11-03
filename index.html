@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101119">
+  <meta name="description" content="Быстрый помощник для матча в Mobile Legends. Отмечайте героев, настраивайте сборку и получайте понятные советы на русском.">
+  <title>Пульс — помощник MLBB</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+  <script src="data.js" defer></script>
+  <script src="localization.js" defer></script>
+  <script src="ru-content.js" defer></script>
+  <script src="engine.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">К содержимому</a>
+  <div id="app"><div class="loading-screen"><img src="icon.svg" width="56" height="56" alt=""><h1>Пульс</h1><p>Загружаем базу героев…</p></div></div>
+  <div id="modal-root"></div>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <noscript>Включите JavaScript, чтобы выбирать героев и получать советы.</noscript>
+</body>
+</html>
